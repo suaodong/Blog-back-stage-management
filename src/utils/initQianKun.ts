@@ -4,7 +4,6 @@ import type { Router } from 'vue-router';
 
 export default function initQianKun(router: Router) {
     router.isReady().then(async () => {
-        console.log('\x1b[32m%s\x1b[0m', 29, `微应用转发`);
         await nextTick()
         registerMicroApps([
             {

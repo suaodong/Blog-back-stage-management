@@ -6,6 +6,7 @@ import { pinia } from './stores'
 import './router/permission'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
+import zhCn from 'element-plus/es/locale/lang/zh-cn'
 import * as ElementPlusIconsVue from '@element-plus/icons-vue'
 import initQianKun from './utils/initQianKun'
 
@@ -17,7 +18,7 @@ for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
 
 app.use(router)
 app.use(pinia)
-app.use(ElementPlus)
+app.use(ElementPlus, { locale: zhCn })
 
 if (import.meta.env.DEV) {
   import('./mock')
@@ -27,26 +28,3 @@ app.mount('#app')
 
 // 注册qiankun微应用
 initQianKun(router)
-
-// router.isReady().then(async () => {
-//   console.log('\x1b[32m%s\x1b[0m', 29, `start qiankun`);
-//   await nextTick()
-//   registerMicroApps([
-//     {
-//       name: 'react-sub',
-//       entry: '//localhost:5174',
-//       container: '#subapp-container',
-//       activeRule: '/sub-react',
-//       props: {
-//         routerBase: '/sub-react'
-//       }
-//     }
-//   ])
-
-//   start({
-//     prefetch: true,
-//     sandbox: {
-//       experimentalStyleIsolation: true
-//     }
-//   })
-// })

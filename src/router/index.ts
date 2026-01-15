@@ -29,43 +29,48 @@ const routes: Array<RouteRecordRaw> = [
     meta: { title: 'Login', hidden: true }
   },
   {
-    path: '/401',
-    name: 'NoPermission',
-    component: () => import('../views/401/index.vue'),
-    meta: { title: '401', hidden: true }
-  },
-  {
     path: '/',
     component: Layout,
     redirect: '/dashboard',
     children: [
       {
         path: 'dashboard',
-        name: 'Dashboard',
+        name: '首页',
         component: () => import('../views/dashboard/index.vue'),
-        meta: { title: 'Dashboard', icon: 'Odometer', affix: true }
+        meta: { title: '首页', icon: 'Odometer', affix: true }
       }
     ]
   },
   {
-    path: '/user',
+    path: '/blogs_management',
     component: Layout,
-    redirect: '/user/list',
-    name: 'UserManagement',
-    meta: { title: 'User Management', icon: 'User' },
+    meta: { title: '博客管理', icon: 'Menu' },
     children: [
       {
-        path: 'list',
-        name: 'UserList',
-        component: () => import('../views/dashboard/index.vue'), // Temporary using dashboard component
-        meta: { title: 'User List', icon: 'List' }
+        path: 'write_article',
+        component: () => import('@/views/blogs_management/write_article/index.vue'),
+        name: 'write_article',
+        meta: { title: '写文章', icon: 'EditPen' }
       },
       {
-        path: 'role',
-        name: 'RoleManagement',
-        component: () => import('../views/dashboard/index.vue'), // Temporary using dashboard component
-        meta: { title: 'Role Management', icon: 'UserFilled' }
-      }
+        path: 'write_dynamic_state',
+        component: () => import('@/views/blogs_management/write_dynamic_state/index.vue'),
+        name: 'write_dynamic_state',
+        meta: { title: '写动态', icon: 'Edit' }
+      },
+      {
+        path: 'sort_management',
+        component: () => import('@/views/blogs_management/sort_management/index.vue'),
+        name: 'sort_management',
+        meta: { title: '分类管理', icon: 'Operation' }
+      },
+      {
+        path: 'label_management',
+        component: () => import('@/views/blogs_management/label_management/index.vue'),
+        name: 'label_management',
+        meta: { title: '标签管理', icon: 'CollectionTag' }
+      },
+      // 文章管理-动态管理-分类管理-标签管理-评论管理
     ]
   },
   {
@@ -83,20 +88,11 @@ const routes: Array<RouteRecordRaw> = [
       }
     ]
   },
-    {
-    path: '/sub-vue3',
-    component: Layout,
-    redirect: '/sub-vue3/project',
-    name: 'subVue3',
-    meta: { title: 'B端项目管理', icon: 'List' },
-    children: [
-      {
-        path: 'project',
-        name: 'Vue3Project',
-        component: () => import('../views/empty/index.vue'),
-        meta: { title: '项目列表', icon: 'List' }
-      }
-    ]
+  {
+    path: '/401',
+    name: 'NoPermission',
+    component: () => import('../views/401/index.vue'),
+    meta: { title: '401', hidden: true }
   },
 ]
 

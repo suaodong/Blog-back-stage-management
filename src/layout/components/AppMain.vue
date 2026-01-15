@@ -1,7 +1,7 @@
 <template>
   <section class="app-main">
     <div id="subapp-container" class="subapp-container" v-show="isSubReactRoute" />
-    <div v-show="!isSubReactRoute">
+    <div v-show="!isSubReactRoute" class="h_100">
       <router-view v-slot="{ Component }">
         <transition name="fade-transform" mode="out-in">
           <component :is="Component" />
@@ -17,7 +17,6 @@ import { useRoute } from 'vue-router'
 
 const route = useRoute()
 const isSubReactRoute = computed(() => route.path.startsWith('/sub-react'))
-console.log('\x1b[32m%s\x1b[0m', 20, isSubReactRoute.value);
 </script>
 
 <style scoped>
@@ -54,5 +53,8 @@ console.log('\x1b[32m%s\x1b[0m', 20, isSubReactRoute.value);
 .fade-transform-leave-to {
   opacity: 0;
   transform: translateX(30px);
+}
+.h_100{
+  height: 100%;
 }
 </style>
