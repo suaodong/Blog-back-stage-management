@@ -39,5 +39,11 @@ export const request = {
   },
   post<T>(url: string, data?: unknown, config?: AxiosRequestConfig) {
     return http.post<ApiResponse<T>>(url, data, config) as unknown as Promise<ApiResponse<T>>
+  },
+  put<T>(url: string, data?: unknown, config?: AxiosRequestConfig) {
+    return http.put<ApiResponse<T>>(url, data, config) as unknown as Promise<ApiResponse<T>>
+  },
+  delete<T>(url: string, config?: AxiosRequestConfig) {
+    return http.delete<ApiResponse<T>>(url, config) as unknown as Promise<ApiResponse<T>>
   }
 }

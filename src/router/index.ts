@@ -52,12 +52,12 @@ const routes: Array<RouteRecordRaw> = [
         name: 'write_article',
         meta: { title: '写文章', icon: 'EditPen' }
       },
-      {
-        path: 'write_dynamic_state',
-        component: () => import('@/views/blogs_management/write_dynamic_state/index.vue'),
-        name: 'write_dynamic_state',
-        meta: { title: '写动态', icon: 'Edit' }
-      },
+      // {
+      //   path: 'write_dynamic_state',
+      //   component: () => import('@/views/blogs_management/write_dynamic_state/index.vue'),
+      //   name: 'write_dynamic_state',
+      //   meta: { title: '写动态', icon: 'Edit' }
+      // },
       {
         path: 'sort_management',
         component: () => import('@/views/blogs_management/sort_management/index.vue'),
